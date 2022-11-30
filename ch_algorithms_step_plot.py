@@ -9,7 +9,7 @@ def CCW(p1, p2, p3):
 	return False
 
 # GRAHAM SCAN
-def GrahamScan(P):
+def GrahamScanAnimation(P, pauseDuration=0.0000001):
 	P.sort()			# Sort the set of points
 	P = np.array(P)			# Convert the list to numpy array
 	plt.figure()			# Create a new fig
@@ -20,7 +20,7 @@ def GrahamScan(P):
 		while len(L_upper) > 2 and not CCW(L_upper[-1],L_upper[-2],L_upper[-3]):
 			del L_upper[-2]
 		L = np.array(L_upper)
-		plotLinesAndPointsInStep(L, P)
+		plotLinesAndPointsInStep(L, P, pauseDuration)
 	L_lower = [P[-1], P[-2]]	# Initialize the lower part
 	# Compute the lower part of the hull
 	for i in range(len(P)-3,-1,-1):
@@ -28,7 +28,7 @@ def GrahamScan(P):
 		while len(L_lower) > 2 and not CCW(L_lower[-1],L_lower[-2],L_lower[-3]):
 			del L_lower[-2]
 		L = np.array(L_upper + L_lower)
-		plotLinesAndPointsInStep(L, P)
+		plotLinesAndPointsInStep(L, P, pauseDuration)
 	del L_lower[0]
 	del L_lower[-1]
 	L = L_upper + L_lower 		# Build the full hull
@@ -37,7 +37,7 @@ def GrahamScan(P):
 	return np.array(L)
 
 # JARVIS' MARCH
-def JarvisMarch(S):
+def JarvisMarchAnimation(S, pauseDuration=0.0000001):
 	plt.figure()  # Define figure
 	index = 0
 	n = len(S)
@@ -54,7 +54,7 @@ def JarvisMarch(S):
 		i = i + 1
 		pointOnHull = endpoint
 		J = np.array([P[k] for k in range(n) if P[k] is not None])
-		plotLinesAndPointsInStep(J, S)
+		plotLinesAndPointsInStep(J, S, pauseDuration)
 		index += 1
 		if endpoint[0] == P[0][0] and endpoint[1] == P[0][1]:
 			break
