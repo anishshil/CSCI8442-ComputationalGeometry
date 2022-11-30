@@ -16,12 +16,12 @@ def plot_contours(ax, clf, xx, yy, **params):
 
 def configure_axes(ax, x0, x1, title, **params):
     ax.scatter(x0, x1, **params)
-    ax.set_ylabel('y label here')
-    ax.set_xlabel('x label here')
+    # ax.set_ylabel('y label here')
+    # ax.set_xlabel('x label here')
     ax.set_xticks(())
     ax.set_yticks(())
     ax.set_title(title)
-    ax.legend()
+    # ax.legend()
 
 def run_svm(x, y, title):
   model = SVC(kernel='linear')
