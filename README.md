@@ -1,2 +1,2 @@
-# CSCI 8442 Project - Comparison of Machine Learning vs Geomteric Models for SVM-based classifiers
+# CSCI 8442 Project - Comparison of Machine Learning vs Geometric Models for SVM-based classifiers
 A comparison of different algorithms (machine-learning vs geometric) for binary classification using SVM-based classifiers. We synthesized labeled datasets with different data distribution (gaussian, circular, mixed) and analyzed the performance of Graham's Scan, Jarvis' March and standard QuickHull based convex hull algorithms for finding the maximum margin hyperplane.
